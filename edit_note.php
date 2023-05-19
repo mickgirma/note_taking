@@ -208,19 +208,7 @@
                     <section class="scrollable">
                       <div class="wrapper">
                         <section class="panel panel-default">
-                          <?php
-                             $get_note = mysqli_query($conn,"select * from notes WHERE note_id = \"$get_id\"") or die(mysqli_error());
-                             while ($row = mysqli_fetch_array($get_note)) {
-                             $id = $row['note_id'];
-                                 ?>
-                          <h4 style = "text-transform:uppercase;" class="font-thin padder"><b><?php echo $row['title']; ?></b></h4>
-                          <ul class="list-group">
-                            <li class="list-group-item">
-                                <p><?php echo $note['note']; ?></p>
-                                <small class="block text-muted text-info"><i class="fa fa-clock-o text-info"></i> <?php echo $note['time_in'] ?></small>
-                            </li>
-                          </ul>
-                          <?php } ?> 
+                          
                         </section>
                         <section class="panel clearfix bg-info lter">
                           <!-- <div class="panel-body">

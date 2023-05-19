@@ -31,14 +31,14 @@ if(isset($_POST['signin']))
 <html lang="en" class="bg-dark">
 <head>
   <meta charset="utf-8" />
-  <title>Notebook | Web Application</title>
+  <title>College Notes</title>
   <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="css/animate.css" type="text/css" />
   <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
   <link rel="stylesheet" href="css/font.css" type="text/css" />
-    <link rel="stylesheet" href="css/app.css" type="text/css" />
+  <link rel="stylesheet" href="css/app.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="js/ie/html5shiv.js"></script>
     <script src="js/ie/respond.min.js"></script>
@@ -46,9 +46,10 @@ if(isset($_POST['signin']))
   <![endif]-->
 </head>
 <body>
+
   <section id="content" class="m-t-lg wrapper-md animated fadeInUp">    
     <div class="container aside-xxl">
-      <a class="navbar-brand block" href="login.php">Notebook</a>
+      <a class="navbar-brand block" href="login.php">College Notes</a>
       <section class="panel panel-default bg-white m-t-lg">
         <header class="panel-heading text-center">
           <strong>Login Form</strong>
@@ -70,19 +71,17 @@ if(isset($_POST['signin']))
           <a href="signup.php" class="btn btn-default btn-block">Create an account</a>
           </div>
         </form>
+
+        <form action="adminlogin.php" method="post">
+          <div class="panel-body wrapper-lg">       
+          <p class="text-muted"><small>Admin account?</small></p>
+          <div class="line line-dashed"></div>
+          <button type = "submit" class="btn btn-primary btn-md"> Admin Login </button>
+          <div class="line line-dashed"></div>
+        </div>
       </section>
     </div>
   </section>
-  <!-- footer -->
-  <footer id="footer">
-    <div class="text-center padder">
-      <p>
-        <small>Notebook | Web Application by Group 4<br>&copy; 2023</small>
-      </p>
-    </div>
-  </footer>
-  <!-- / footer -->
-  <script src="js/jquery.min.js"></script>
   <!-- Bootstrap -->
   <script src="js/bootstrap.js"></script>
   <!-- App -->

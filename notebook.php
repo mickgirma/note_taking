@@ -75,9 +75,6 @@ if (isset($_GET['delete'])) {
   <section class="vbox">
     <header class="bg-dark dk header navbar navbar-fixed-top-xs">
       <div class="navbar-header aside-md">
-        <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
-          <i class="fa fa-bars"></i>
-        </a>
         <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="images/logo.png" class="m-r-sm">College Notes</a>
         <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
           <i class="fa fa-cog"></i>
@@ -108,7 +105,7 @@ if (isset($_GET['delete'])) {
     <section>
       <section class="hbox stretch">
         <!-- .aside -->
-        <aside class="bg-dark lter aside-md hidden-print" id="nav">          
+        <aside class="bg-dark lter aside-md hidden-print nav-xs" id="nav">          
           <section class="vbox">
              <section class="w-f scrollable">
                <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
@@ -129,35 +126,13 @@ if (isset($_GET['delete'])) {
                 
               </div> 
             </section> 
-            
-            <footer class="footer lt hidden-xs b-t b-dark">
-              <div id="invite" class="dropup">                
-                <section class="dropdown-menu on aside-md m-l-n">
-                  <section class="panel bg-white">
-                    <header class="panel-heading b-b b-light">
-                      <?php $query= mysqli_query($conn,"select * from register where user_ID = '$session_id'")or die(mysqli_error());
-                        $row = mysqli_fetch_array($query);
-                      ?>
-                      <?php echo $row['fullName']; ?> <i class="fa fa-circle text-success"></i>
-                    </header>
-                    <!-- <div class="panel-body animated fadeInRight">
-                      <p><a href="https://www.youtube.com/channel/UCGnh6Xo-GhfNw4q7w9z1YxA/playlists" target="_blank" class="btn btn-sm btn-facebook"><i class="fa fa-fw fa-youtube"></i> Invite from Youtube</a></p>
-                    </div> -->
-                  </section>
-                </section>
-              </div>
-              <a href="#nav" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-dark btn-icon">
-                <i class="fa fa-angle-left text"></i>
-                <i class="fa fa-angle-right text-active"></i>
-              </a>
-             
-            </footer>
+
           </section>
         </aside>
         <!-- /.aside -->
         <section id="content">
           <section class="hbox stretch">
-                  <aside class="aside-lg bg-light lter b-r">
+                  <aside class="aside-lg lter b-r">
                     <div class="wrapper">
                       <h4 class="m-t-none">Add Note</h4>
                       <form method="POST">
@@ -169,7 +144,7 @@ if (isset($_GET['delete'])) {
                           <label>Note</label>
                           <textarea name="note" class="form-control" rows="8" data-minwords="8" data-required="true" placeholder="Take a Note ......"></textarea>
                         </div>
-                        <div class="m-t-lg"><button class="btn btn-sm btn-default" name="submit" type="submit">Add an event</button></div>
+                        <div class="m-t-lg"><button class="btn btn-lg btn-default btn-info" name="submit" type="submit">Add an event</button></div>
                       </form>
                     </div>
                 </aside>
@@ -217,30 +192,20 @@ if (isset($_GET['delete'])) {
                     <section class="scrollable">
                       <div class="wrapper">
                         <section class="panel panel-default">
-                          <?php
-                             $get_note = mysqli_query($conn,"select * from notes WHERE user_id = \"$session_id\" LIMIT 1") or die(mysqli_error());
-                             while ($row = mysqli_fetch_array($get_note)) {
-                             $id = $row['note_id'];
-                                 ?>
-                          <h4 style = "text-transform:uppercase;" class="font-thin padder"><b><?php echo $row['title']; ?></b></h4>
-                          <ul class="list-group">
-                            <li class="list-group-item">
-                                <p><?php echo $row['note']; ?> </p>
-                            </li>
-                          </ul>
-                          <?php } ?> 
-                        </section>
-                        <section class="panel clearfix bg-info lter">
-                          <!-- <div class="panel-body">
-                            <a href="#" class="thumb pull-left m-r">
-                              <img src="images/profile.jpg" class="img-circle">
-                            </a>
-                            <div class="clear">
-                              <a href="#" class="text-info">@CodeLytical <i class="fa fa-twitter"></i></a>
-                              <small class="block text-muted">2,415 followers / 225 tweets</small>
-                              <a href="https://www.youtube.com/channel/UCGnh6Xo-GhfNw4q7w9z1YxA/playlists" target="_blank" class="btn btn-xs btn-success m-t-xs">Subscribe</a>
+                        <h2 class="" >Upload Your File Notes</h2>
+                          <form id="upload" method="POST" action="upload.php" enctype="multipart/form-data">
+                            <div id="drop">
+
+                              <a>Upload File</a>
+
+                              <input type="file" name="upl" multiple accept=".pdf,.docx">
                             </div>
-                          </div> -->
+
+                            <ul>
+                              <!-- The file uploads will be shown here -->
+                            </ul>
+
+                          </form>
                         </section>
                       </div>
                     </section>
@@ -268,6 +233,22 @@ if (isset($_GET['delete'])) {
 <script src="js/libs/moment.min.js"></script>
 <!-- Notes -->
 <script src="js/apps/notes.js"></script>
+
+<!-- JavaScript Includes -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="assets/js/jquery.knob.js"></script>
+
+		<!-- jQuery File Upload Dependencies -->
+		<script src="assets/js/jquery.ui.widget.js"></script>
+		<script src="assets/js/jquery.iframe-transport.js"></script>
+		<script src="assets/js/jquery.fileupload.js"></script>
+		
+		<!-- Our main JS file -->
+		<script src="assets/js/script.js"></script>
+
+
+		<!-- Only used for the demos. Please ignore and remove. --> 
+        <script src="http://cdn.tutorialzine.com/misc/enhance/v1.js" async></script>
 
 </body>
 </html>
