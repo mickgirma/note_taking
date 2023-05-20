@@ -52,25 +52,16 @@
   <link rel="stylesheet" href="css/animate.css" type="text/css" />
   <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
   <link rel="stylesheet" href="css/font.css" type="text/css" />
-  
   <link rel="stylesheet" href="css/app.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="js/ie/html5shiv.js"></script>
-    <script src="js/ie/respond.min.js"></script>
-    <script src="js/ie/excanvas.js"></script>
-  <![endif]-->
+
 </head>
 <body>
   <section class="vbox">
     <header class="bg-dark dk header navbar navbar-fixed-top-xs">
       <div class="navbar-header aside-md">
-        <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
-          <i class="fa fa-bars"></i>
-        </a>
-        <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="images/logo.png" class="m-r-sm">Notebook</a>
-        <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
-          <i class="fa fa-cog"></i>
-        </a>
+        
+        <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="images/Notes icon.jpg" class="m-r-sm">College Notes</a>
+       
       </div>
       <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
         <li class="dropdown">
@@ -97,7 +88,7 @@
     <section>
       <section class="hbox stretch">
         <!-- .aside -->
-        <aside class="bg-dark lter aside-md hidden-print" id="nav">          
+        <aside class="bg-dark lter aside-md hidden-print nav-xs" id="nav">          
           <section class="vbox">
             <section class="w-f scrollable">
               <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
@@ -119,36 +110,13 @@
               </div>
             </section>
             
-            <footer class="footer lt hidden-xs b-t b-dark">
-              <div id="invite" class="dropup">                
-                <section class="dropdown-menu on aside-md m-l-n">
-                  <section class="panel bg-white">
-                    <header class="panel-heading b-b b-light">
-                      <?php $query= mysqli_query($conn,"select * from register where user_ID = '$session_id'")or die(mysqli_error());
-                        $row = mysqli_fetch_array($query);
-                      ?>
-                      <?php echo $row['fullName']; ?> <i class="fa fa-circle text-success"></i>
-                    </header>
-                    <!-- <div class="panel-body animated fadeInRight">
-                      <p><a href="https://www.youtube.com/channel/UCGnh6Xo-GhfNw4q7w9z1YxA/playlists" target="_blank" class="btn btn-sm btn-facebook"><i class="fa fa-fw fa-youtube"></i> Invite from Youtube</a></p>
-                    </div> -->
-                  </section>
-                </section>
-              </div>
-              <a href="#nav" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-dark btn-icon">
-                <i class="fa fa-angle-left text"></i>
-                <i class="fa fa-angle-right text-active"></i>
-              </a>
-              <div class="btn-group hidden-nav-xs">
-                <button type="button" title="Contacts" class="btn btn-icon btn-sm btn-dark" data-toggle="dropdown" data-target="#invite"><i class="fa fa-youtube"></i></button>
-              </div>
-            </footer>
+          
           </section>
         </aside>
         <!-- /.aside -->
         <section id="content">
           <section class="hbox stretch">
-                  <aside class="aside-lg bg-light lter b-r">
+                  <aside class="aside-lg lter b-r">
                     <div class="wrapper">
                       <h4 class="m-t-none">Add Note</h4>
                       <form method="POST">
@@ -164,7 +132,7 @@
                           <label>Note</label>
                           <textarea name="note" class="form-control" rows="8" data-minwords="8" data-required="true" placeholder="Take a Note ......"><?php echo $row['note']; ?></textarea>
                         </div>
-                        <div class="m-t-lg"><button class="btn btn-sm btn-default" name="update" type="submit">Update Note</button></div>
+                        <div class="m-t-lg"><button class="btn btn-md btn-default btn-info" name="update" type="submit">Update Note</button></div>
                       </form>
                     </div>
                 </aside>
@@ -203,7 +171,7 @@
                     </section>
                   </section>
                 </aside>
-                <aside class="col-lg-4 b-l">
+                <!-- <aside class="col-lg-4 b-l">
                   <section class="vbox">
                     <section class="scrollable">
                       <div class="wrapper">
@@ -225,7 +193,7 @@
                       </div>
                     </section>
                   </section>              
-                </aside>
+                </aside> -->
           </section>
           <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
         </section>

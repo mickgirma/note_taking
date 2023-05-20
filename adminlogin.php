@@ -1,18 +1,6 @@
 <?php
 session_start();
-
-// Database configuration
-$host = 'localhost'; // Database host
-$user = 'root'; // Database username
-$password = ''; // Database password
-$database = 'note_taking'; // Database name
-
-// Establish the database connection
-$conn = mysqli_connect($host, $user, $password, $database);
-
-if (!$conn) {
-    die('Database connection error: ' . mysqli_connect_error());
-}
+include('includes/config.php');
 
 if (isset($_POST['adminlog'])) {
     $email = $_POST['email'];
@@ -21,35 +9,25 @@ if (isset($_POST['adminlog'])) {
     // Query the database to verify the admin's credentials and role
     // Assuming you have an admins table with columns admin_ID, email, password, and role
     $sql = "SELECT * FROM admins WHERE email = '$email' AND password = '$password'";
-    $result = mysqli_query($conn, $sql);
-
-    if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $adminId = $row['admin_ID'];
-        $adminRole = trim($row['role']);
-
-        // Set the admin's role in the session for later use
-        $_SESSION['admin_id'] = $adminId;
-        $_SESSION['admin_role'] = $adminRole;
-
-        ob_start();
-
-        // Redirect to the appropriate page based on the admin's role
-        if ($adminRole === 'admin') {
-            header('Location: users.php');
-            exit();
-        } else {
-            echo "<script>alert('Invalid email or password.');</script>";
-        }
-        exit();
-    } else {
-        // Authentication failed, display an error message or redirect to the login page
-        echo "<script>alert('Invalid email or password.');</script>";
+    $query= mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($query);
+    if($count > 0)
+    {
+      while ($row = mysqli_fetch_assoc($query)) {
+         $_SESSION['alogin']=$row['role'];
+         echo "<script type='text/javascript'> document.location = 'users.php'; </script>";
+      }
+  
+    } 
+    else{
+      
+      echo "<script>alert('Invalid Details');</script>";
+  
     }
-}
+  
+  }
 
-// Close the database connection
-mysqli_close($conn);
+
 ?>
 
 
@@ -94,5 +72,13 @@ mysqli_close($conn);
         </form>
     </div>
 </section>
+
+ <!-- Bootstrap -->
+ <script src="js/bootstrap.js"></script>
+  <!-- App -->
+  <script src="js/app.js"></script>
+  <script src="js/app.plugin.js"></script>
+  <script src="js/slimscroll/jquery.slimscroll.min.js"></script>
+
 </body>
 </html>

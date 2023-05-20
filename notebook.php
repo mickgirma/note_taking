@@ -75,7 +75,7 @@ if (isset($_GET['delete'])) {
   <section class="vbox">
     <header class="bg-dark dk header navbar navbar-fixed-top-xs">
       <div class="navbar-header aside-md">
-        <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="images/logo.png" class="m-r-sm">College Notes</a>
+        <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="images/Notes icon.jpg" class="m-r-sm">College Notes</a>
         <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
           <i class="fa fa-cog"></i>
         </a>
