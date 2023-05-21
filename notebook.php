@@ -65,11 +65,6 @@ if (isset($_GET['delete'])) {
   <link rel="stylesheet" href="css/font.css" type="text/css" />
   
   <link rel="stylesheet" href="css/app.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="js/ie/html5shiv.js"></script>
-    <script src="js/ie/respond.min.js"></script>
-    <script src="js/ie/excanvas.js"></script>
-  <![endif]-->
 </head>
 <body>
   <section class="vbox">
