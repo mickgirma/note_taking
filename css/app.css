@@ -626,7 +626,13 @@ a:hover .caret-white {
     width: 220px;
   }
   .aside-lg {
-    width: 25%;
+    width: 35%;
+  }
+  .aside-file{
+    width: 30%;
+  }
+  .asideedit {
+    width: 50%;
   }
   .aside-xl {
     width: 300px;
@@ -3250,6 +3256,10 @@ a, a:visited {
 
 a:hover{
   text-decoration:none;
+}
+
+.m-t-lg > button{
+  font-weight:bold;
 }
 
 /*----------------------------

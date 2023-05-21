@@ -116,9 +116,9 @@
         <!-- /.aside -->
         <section id="content">
           <section class="hbox stretch">
-                  <aside class="aside-lg lter b-r">
+                  <aside class="aside-lg lter b-r asideedit">
                     <div class="wrapper">
-                      <h4 class="m-t-none">Add Note</h4>
+                      <h4 class="m-t-none">Edit Note</h4>
                       <form method="POST">
                       	<?php
 						$query = mysqli_query($conn,"select * from notes where note_id = '$get_id' ")or die(mysqli_error());
@@ -130,7 +130,7 @@
                         </div>
                         <div class="form-group">
                           <label>Note</label>
-                          <textarea name="note" class="form-control" rows="8" data-minwords="8" data-required="true" placeholder="Take a Note ......"><?php echo $row['note']; ?></textarea>
+                          <textarea name="note" class="form-control" rows="15" data-minwords="8" data-required="true" placeholder="Take a Note ......"><?php echo $row['note']; ?></textarea>
                         </div>
                         <div class="m-t-lg"><button class="btn btn-md btn-default btn-info" name="update" type="submit">Update Note</button></div>
                       </form>

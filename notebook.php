@@ -142,9 +142,9 @@ if (isset($_GET['delete'])) {
                         </div>
                         <div class="form-group">
                           <label>Note</label>
-                          <textarea name="note" class="form-control" rows="8" data-minwords="8" data-required="true" placeholder="Take a Note ......"></textarea>
+                          <textarea name="note" class="form-control" rows="16" data-minwords="8" data-required="true" placeholder="Take a Note ......"></textarea>
                         </div>
-                        <div class="m-t-lg"><button class="btn btn-lg btn-default btn-info" name="submit" type="submit">Add an event</button></div>
+                        <div class="m-t-lg"><button class="btn btn-md btn-default btn-info" name="submit" type="submit">Add an event</button></div>
                       </form>
                     </div>
                 </aside>
@@ -187,7 +187,7 @@ if (isset($_GET['delete'])) {
                     </section>
                   </section>
                 </aside>
-                <aside class="col-lg-4 b-l">
+                <aside class="col-lg-4 b-l aside-file">
                   <section class="vbox">
                     <section class="scrollable">
                       <div class="wrapper">
@@ -214,9 +214,9 @@ if (isset($_GET['delete'])) {
           </section>
           <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
         </section>
-        <aside class="bg-light lter b-l aside-md hide" id="notes">
+        <!-- <aside class="bg-light lter b-l aside-md hide" id="notes">
           <div class="wrapper">Notification</div>
-        </aside>
+        </aside> -->
       </section>
     </section>
   </section>
