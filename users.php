@@ -1,6 +1,7 @@
 <?php
 // session_start();
  include('includes/config.php'); 
+//  include('index.php');
 ?>
 
 
@@ -41,6 +42,7 @@
                                 <th>Id</th>
                                 <th>Username</th>
                                 <th>Email</th>
+                                <th>Password</th>
                                 <th>Role</th>
                                 <th>Delete</th>
                             </tr>
@@ -56,7 +58,7 @@
             while ($row = mysqli_fetch_array($select_users)) {
                 $user_id = $row['user_ID'];
                 $username = $row['fullName'];
-                // $name = $row['name'];
+                $user_password = $row['password'];
                 $user_email = $row['email'];
                 $user_role = $row['role'];
                 // $user_course = $row['course'];
@@ -65,6 +67,7 @@
                 echo "<td><a href='viewprofile.php?name=$username' target='_blank'> $username</a></td>";
                 // echo "<td>$name</td>";
                 echo "<td>$user_email</td>";
+                echo "<td>$user_password</td>";
                 echo "<td>$user_role</td>";
                 // echo "<td>$user_course</td>";
                 echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this user?')\" href='users.php?delete=$user_id'><i class='fa fa-times fa-lg'></i>delete</a></td>";

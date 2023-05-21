@@ -60,7 +60,7 @@
     <header class="bg-dark dk header navbar navbar-fixed-top-xs">
       <div class="navbar-header aside-md">
         
-        <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="images/Notes icon.jpg" class="m-r-sm">College Notes</a>
+        <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="images/logo.png" class="m-r-sm">College Notes</a>
        
       </div>
       <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">

@@ -7,49 +7,42 @@ if(isset($_POST['signup']))
 	$email=$_POST['email'];
 	$password=md5($_POST['password']);
 
-	$query = mysqli_query($conn,"select * from register where email = '$email'")or die(mysqli_error());
-	$count = mysqli_num_rows($query);
+	if(empty($name) || empty($email) || empty($password)) {
+		echo "<script>alert('Please enter valid inputs (non-empty values).');</script>";
+	}
+  
+  else {
+		$query = mysqli_query($conn,"SELECT * FROM register WHERE email = '$email'") or die(mysqli_error());
+		$count = mysqli_num_rows($query);
 
-	if ($count > 0){ ?>
-	 <script>
-	 alert('Data Already Exist');
-	</script>
-	<?php
-      }else{
-        mysqli_query($conn,"INSERT INTO register(fullName, email, password) VALUES('$name','$email','$password')         
-		") or die(mysqli_error()); ?>
-		<script>alert('Records Successfully  Added');</script>;
-		<script>
-		window.location = "index.php"; 
-		</script>
-		<?php   }
-
+		if ($count > 0) {
+			echo "<script>alert('Data Already Exist');</script>";
+		} else {
+			mysqli_query($conn,"INSERT INTO register(fullName, email, password) VALUES('$name','$email','$password')") or die(mysqli_error());
+			echo "<script>alert('Records Successfully Added');</script>";
+			echo "<script>window.location = 'index.php';</script>";
+		}
+	}
 }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en" class="bg-dark">
 <head>
   <meta charset="utf-8" />
-  <title>Notebook | Web Application</title>
+  <title>College Notes</title>
   <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="css/animate.css" type="text/css" />
   <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
   <link rel="stylesheet" href="css/font.css" type="text/css" />
-    <link rel="stylesheet" href="css/app.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="js/ie/html5shiv.js"></script>
-    <script src="js/ie/respond.min.js"></script>
-    <script src="js/ie/excanvas.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="css/app.css" type="text/css" />
 </head>
 <body>
   <section id="content" class="m-t-lg wrapper-md animated fadeInDown">
     <div class="container aside-xxl">
-      <a class="navbar-brand block" href="signup.php">Notebook</a>
+      <a class="navbar-brand block" href="signup.php">College Notes</a>
       <section class="panel panel-default m-t-lg bg-white">
         <header class="panel-heading text-center">
           <strong>Sign up</strong>
@@ -62,7 +55,7 @@ if(isset($_POST['signup']))
 	          </div>
 	          <div class="form-group">
 	            <label class="control-label">Email</label>
-	            <input name="email" type="email" placeholder="test@example.com" class="form-control input-lg">
+	            <input name="email" type="email" placeholder="username@example.com" class="form-control input-lg">
 	          </div>
 	          <div class="form-group">
 	            <label class="control-label">Password</label>
@@ -78,16 +71,6 @@ if(isset($_POST['signup']))
       </section>
     </div>
   </section>
-  <!-- footer -->
-  <footer id="footer">
-    <div class="text-center padder clearfix">
-      <p>
-        <small>Notebook | Web Application by CodeLytical<br>&copy; 2021</small>
-      </p>
-    </div>
-  </footer>
-  <!-- / footer -->
-  <script src="js/jquery.min.js"></script>
   <!-- Bootstrap -->
   <script src="js/bootstrap.js"></script>
   <!-- App -->

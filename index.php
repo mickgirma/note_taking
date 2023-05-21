@@ -58,7 +58,7 @@ if(isset($_POST['signin']))
           <div class="panel-body wrapper-lg">
           	<div class="form-group">
             <label class="control-label">Email</label>
-            <input name="email" type="email" placeholder="codelytical@example.com" class="form-control input-lg">
+            <input name="email" type="email" placeholder="username@example.com" class="form-control input-lg">
           </div>
           <div class="form-group">
             <label class="control-label">Password</label>
